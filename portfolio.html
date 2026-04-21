@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaarel Leetsaar - Tehtud tööd</title>
+    <style>
+        :root { --bg-color: #fafafa; --text-main: #333333; --text-muted: #666666; --accent: #000000; --nav-bg: #ffffff; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        nav { background-color: var(--nav-bg); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); padding: 1rem 0; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s ease; }
+        nav a:hover, .active { color: var(--text-muted); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+        header { text-align: center; padding: 4rem 1rem 3rem 1rem; }
+        header h1 { margin: 0; font-size: 2.5rem; font-weight: 700; letter-spacing: -0.5px; }
+        header p { color: var(--text-muted); font-size: 1.2rem; margin-top: 0.5rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; flex: 1; }
+        section { margin-bottom: 4rem; }
+        h2 { font-size: 1.5rem; border-bottom: 1px solid #eaeaea; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .project-card { background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); transition: transform 0.2s ease; }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .project-info { padding: 1.5rem; }
+        .project-info h3 { margin: 0 0 0.5rem 0; font-size: 1.1rem; }
+        .project-info p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+        footer { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid #eaeaea; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Minust</a></li>
+            <li><a href="portfolio.html" class="active">Tehtud tööd</a></li>
+            <li><a href="haridus.html">Haridus</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Kaarel Leetsaar</h1>
+        <p>[Millega ta tegeleb, nt: Graafiline Disainer & Fotograaf]</p>
+    </header>
+
+    <div class="container">
+        <section id="portfolio">
+            <h2>Tehtud tööd</h2>
+            <div class="gallery">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80" alt="Projekti pilt 1">
+                    <div class="project-info">
+                        <h3>[Projekti Pealkiri 1]</h3>
+                        <p>Lühike kirjeldus, mida selles projektis tehti.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&q=80" alt="Projekti pilt 2">
+                    <div class="project-info">
+                        <h3>[Projekti Pealkiri 2]</h3>
+                        <p>Lühike kirjeldus, mida selles projektis tehti.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&q=80" alt="Projekti pilt 3">
+                    <div class="project-info">
+                        <h3>[Projekti Pealkiri 3]</h3>
+                        <p>Lühike kirjeldus, mida selles projektis tehti.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Kaarel Leetsaar. Kõik õigused kaitstud.
+    </footer>
+
+</body>
+</html>
