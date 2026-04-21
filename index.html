@@ -3,46 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaarel Leetsaar - Minust</title>
+    <title>Kaarel Leetsaar - Portfoolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Modernne värvipalett */
+        /* Modernne minimalistlik värvipalett */
         :root {
-            --bg-color: #f8f9fa; /* Varutaust, kui pilt ei lae */
-            --text-main: #2b2d42;
-            --text-muted: #8d99ae;
-            --accent: #ef233c;
-            --nav-bg: rgba(255, 255, 255, 0.9); /* Kergelt läbipaistev valge */
+            --accent-main: #3d8bff; /* Pehme sinine aktsent */
+            --bg-off-white: #fafafa;
+            --bg-white: #ffffff;
+            --text-dark: #2a2a2a;
+            --text-medium: #666;
+            --text-light: #fcfcfc;
+            --border-light: #e8e8e8;
+            --shadow: 0 10px 30px rgba(0,0,0,0.03);
+            --rounded: 12px;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            color: var(--text-main);
+            background-color: var(--bg-off-white);
+            color: var(--text-dark);
             line-height: 1.7;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            
-            /* --- TAUSTAPILDI SEADED --- */
-            background-image: url('taust.jpg'); /* Viitab sinu giti failile */
-            background-size: cover; /* Katab terve ekraani */
-            background-position: center center; /* Hoiab pilti keskel */
-            background-attachment: fixed; /* Taust püsib paigal kerides */
-            background-repeat: no-repeat;
         }
 
-        /* Ujuv, läbipaistev menüü */
+        /* Navigatsioonimenüü */
         nav {
-            background-color: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background-color: var(--bg-white);
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             padding: 1.2rem 0;
+            transition: all 0.3s ease;
         }
 
         nav ul {
@@ -56,7 +54,7 @@
         }
 
         nav a {
-            color: var(--text-main);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
             font-size: 1.05rem;
@@ -64,7 +62,7 @@
         }
 
         nav a:hover, .active {
-            color: var(--accent);
+            color: var(--accent-main);
         }
 
         .active {
@@ -79,27 +77,29 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--accent);
+            background-color: var(--accent-main);
             border-radius: 2px;
         }
 
-        /* Päis (ilma gradiendita, et taust paistaks) */
+        /* Hero Päis */
         header {
             text-align: center;
             padding: 6rem 1rem 4rem 1rem;
-            background-color: rgba(255, 255, 255, 0.5); /* Väga õrn valge kiht */
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-off-white) 100%);
+            border-bottom: 1px solid var(--border-light);
             margin-bottom: 3rem;
         }
 
         header h1 {
             margin: 0;
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
+            color: var(--text-dark);
             letter-spacing: -1px;
         }
 
         header p {
-            color: var(--text-muted);
+            color: var(--text-medium);
             font-size: 1.3rem;
             margin-top: 0.8rem;
             font-weight: 300;
@@ -113,44 +113,88 @@
             flex: 1;
         }
 
+        /* Sisu osad */
         section {
             margin-bottom: 5rem;
-            background: rgba(255, 255, 255, 0.95); /* Kergelt läbipaistev valge kast */
+            background: var(--bg-white);
             padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: var(--rounded);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        /* Lisame õrna tausta texture sisu osadele */
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: radial-gradient(#e0e0e0 0.8px, transparent 0.8px);
+            background-size: 16px 16px;
+            opacity: 0.05;
+            z-index: 0;
+            border-radius: var(--rounded);
+        }
+
+        section > * {
+            position: relative;
+            z-index: 1;
         }
 
         h2 {
             font-size: 1.8rem;
-            border-bottom: 2px solid #edf2f4;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--border-light);
             padding-bottom: 0.8rem;
             margin-bottom: 2rem;
             font-weight: 600;
         }
 
-        /* --- PROFIILIPILDI STIIL --- */
-        .profile-area {
-            text-align: center; /* Keskestab pildi */
+        /* --- MINUST LEHE HERO PAIGUTUS --- */
+        .about-hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
             margin-top: 2rem;
         }
 
         .profile-pic {
-            width: 200px; /* Pildi laius */
-            height: 200px; /* Pildi kõrgus */
-            object-fit: cover; /* Säilitab proportsioonid ja lõikab vajadusel */
-            border-radius: 50%; /* Teeb pildi ümaraks */
-            border: 5px solid #ffffff; /* Valge äär */
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Õrn vari */
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--bg-white);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
         
         .profile-pic:hover {
-            transform: scale(1.05); /* Suureneb natuke hiirega peale liikudes */
+            transform: scale(1.05);
         }
 
+        .about-text {
+            flex: 1;
+        }
+
+        .skill-tags {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #f1f1f1;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        /* Lingid */
         .container a {
-            color: var(--accent);
+            color: var(--accent-main);
             text-decoration: none;
             font-weight: 500;
         }
@@ -159,13 +203,30 @@
             text-decoration: underline;
         }
 
+        /* Jalus */
         footer {
             text-align: center;
-            padding: 2rem 1rem;
-            color: var(--text-muted);
+            padding: 2.5rem 1rem;
+            color: var(--text-medium);
             font-size: 0.9rem;
             margin-top: 2rem;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: var(--bg-white);
+            border-top: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        /* Parem linna silhouette jaluses */
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 50px;
+            background-image: url('https://img.icons8.com/?size=100&id=10283&format=png&color=aaaaaa'); /* Styliseeritud silhouette */
+            background-size: contain;
+            background-position: center bottom;
+            background-repeat: repeat-x;
+            opacity: 0.1;
+            z-index: 0;
         }
     </style>
 </head>
@@ -180,21 +241,31 @@
     </nav>
     <header>
         <h1>Kaarel Leetsaar</h1>
-        <p>[Millega ta tegeleb, nt: Graafiline Disainer & Fotograaf]</p>
+        <p>Graafiline Disainer & Fotograaf</p>
     </header>
     <div class="container">
         <section id="about">
             <h2>Minust</h2>
-            <p>Siia saad kirjutada paari lausega, kes Kaarel on, mis on tema tugevused ja milline on tema taust. See on hea koht, kus tuua välja tema kirg oma eriala vastu. Muuda seda teksti täpselt nii, nagu ise soovid.</p>
-            
-            <div class="profile-area">
-                <img src="kaarel.jpg" alt="Kaarel Leetsaar Profiilipilt" class="profile-pic">
+            <div class="about-hero">
+                <img src="kaarel.jpg" alt="Kaarel Leetsaar" class="profile-pic">
+                <div class="about-text">
+                    <p>Olen loovhing, kes leiab inspiratsiooni igapäevaelust. Minu kired ulatuvad graafilisest disainist fotograafiani, ning leian, et need kaks valdkonda täiendavad üksteist suurepäraselt.</p>
+                    <p>Uurin alati uusi stiile ja technikaid, et oma loomingus püsida kaasaegne ja põnev. Mul on hea silm detailidele ja kirg luua midagi, mis on nii visuaalselt ilus kui ka tähendusrikas.</p>
+                </div>
             </div>
             
+            <div class="skill-tags">
+                <span class="tag">Adobe Photoshop</span>
+                <span class="tag">Adobe Illustrator</span>
+                <span class="tag">Adobe Lightroom</span>
+                <span class="tag">Fotograafia</span>
+                <span class="tag">Loovus</span>
+                <span class="tag">Kasutajaliides</span>
+            </div>
         </section>
     </div>
     <footer>
-        &copy; 2026 Kaarel Leetsaar. Kõik õigused kaitstud.
+        <p>&copy; 2026 Kaarel Leetsaar. Kõik õigused kaitstud.</p>
     </footer>
 </body>
 </html>
