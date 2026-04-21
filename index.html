@@ -4,97 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaarel Leetsaar - Minust</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #fafafa;
-            --text-main: #333333;
-            --text-muted: #666666;
-            --accent: #000000;
-            --nav-bg: #ffffff;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        nav {
-            background-color: var(--nav-bg);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            padding: 1rem 0;
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s ease;
-        }
-        nav a:hover, .active {
-            color: var(--text-muted);
-            text-decoration: underline;
-            text-decoration-color: var(--accent);
-            text-underline-offset: 4px;
-        }
-        header {
-            text-align: center;
-            padding: 4rem 1rem 3rem 1rem;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        header p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            flex: 1;
-        }
-        section {
-            margin-bottom: 4rem;
-        }
-        h2 {
-            font-size: 1.5rem;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid #eaeaea;
-            margin-top: 2rem;
-        }
+        :root { --bg-color: #f8f9fa; --text-main: #2b2d42; --text-muted: #8d99ae; --accent: #ef233c; --nav-bg: rgba(255, 255, 255, 0.85); }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; display: flex; flex-direction: column; min-height: 100vh; }
+        nav { background-color: var(--nav-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); padding: 1.2rem 0; transition: all 0.3s ease; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 1.05rem; transition: color 0.3s ease, transform 0.2s ease; }
+        nav a:hover, .active { color: var(--accent); transform: translateY(-2px); }
+        .active { font-weight: 700; position: relative; }
+        .active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background-color: var(--accent); border-radius: 2px; }
+        header { text-align: center; padding: 6rem 1rem 4rem 1rem; background: linear-gradient(135deg, #ffffff 0%, #edf2f4 100%); border-bottom: 1px solid #e2e8f0; margin-bottom: 3rem; }
+        header h1 { margin: 0; font-size: 3rem; font-weight: 700; color: var(--text-main); letter-spacing: -1px; }
+        header p { color: var(--text-muted); font-size: 1.3rem; margin-top: 0.8rem; font-weight: 300; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; flex: 1; }
+        section { margin-bottom: 5rem; background: #ffffff; padding: 3rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        h2 { font-size: 1.8rem; color: var(--text-main); border-bottom: 2px solid #edf2f4; padding-bottom: 0.8rem; margin-bottom: 2rem; font-weight: 600; }
+        .container a { color: var(--accent); text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
+        .container a:hover { color: #d90429; text-decoration: underline; }
+        footer { text-align: center; padding: 2rem 1rem; color: var(--text-muted); font-size: 0.9rem; margin-top: 2rem; background-color: #ffffff; }
     </style>
 </head>
 <body>
-
     <nav>
         <ul>
             <li><a href="index.html" class="active">Minust</a></li>
@@ -103,22 +34,18 @@
             <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
     </nav>
-
     <header>
         <h1>Kaarel Leetsaar</h1>
         <p>[Millega ta tegeleb, nt: Graafiline Disainer & Fotograaf]</p>
     </header>
-
     <div class="container">
         <section id="about">
             <h2>Minust</h2>
             <p>Siia saad kirjutada paari lausega, kes Kaarel on, mis on tema tugevused ja milline on tema taust. See on hea koht, kus tuua välja tema kirg oma eriala vastu. Muuda seda teksti täpselt nii, nagu ise soovid.</p>
         </section>
     </div>
-
     <footer>
         &copy; 2026 Kaarel Leetsaar. Kõik õigused kaitstud.
     </footer>
-
 </body>
 </html>
