@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaarel Leetsaar - Portfoolio</title>
+    <title>Kaarel Leetsaar - Minust</title>
     <style>
-        /* Põhistiilid ja värvid (Minimalistlik) */
         :root {
             --bg-color: #fafafa;
             --text-main: #333333;
@@ -13,12 +12,6 @@
             --accent: #000000;
             --nav-bg: #ffffff;
         }
-
-        /* Sujuv kerimine sektsioonide vahel */
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -26,9 +19,10 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-
-        /* Navigatsioonimenüü */
         nav {
             background-color: var(--nav-bg);
             position: sticky;
@@ -37,7 +31,6 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             padding: 1rem 0;
         }
-
         nav ul {
             list-style: none;
             margin: 0;
@@ -47,7 +40,6 @@
             gap: 2rem;
             flex-wrap: wrap;
         }
-
         nav a {
             color: var(--text-main);
             text-decoration: none;
@@ -55,117 +47,42 @@
             font-size: 1rem;
             transition: color 0.2s ease;
         }
-
-        nav a:hover {
+        nav a:hover, .active {
             color: var(--text-muted);
             text-decoration: underline;
             text-decoration-color: var(--accent);
             text-underline-offset: 4px;
         }
-
-        /* Päis */
         header {
             text-align: center;
             padding: 4rem 1rem 3rem 1rem;
         }
-
         header h1 {
             margin: 0;
             font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
-
         header p {
             color: var(--text-muted);
             font-size: 1.2rem;
             margin-top: 0.5rem;
         }
-
-        /* Sisu konteiner */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 1.5rem;
+            flex: 1;
         }
-
-        /* Iga sektsiooni ülemine varu, et menüü ei kataks pealkirja */
         section {
             margin-bottom: 4rem;
-            scroll-margin-top: 5rem; 
         }
-
         h2 {
             font-size: 1.5rem;
             border-bottom: 1px solid #eaeaea;
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
         }
-
-        /* Galerii / Tehtud tööd */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
-        .project-info h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.1rem;
-        }
-
-        .project-info p {
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Listid (Haridus ja Kontakt) */
-        .info-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .info-list li {
-            margin-bottom: 0.8rem;
-        }
-
-        /* Lingid tekstis */
-        .container a {
-            color: var(--accent);
-            text-decoration: underline;
-            text-decoration-color: #ccc;
-            text-underline-offset: 4px;
-        }
-
-        .container a:hover {
-            text-decoration-color: var(--accent);
-        }
-
-        /* Jalus */
         footer {
             text-align: center;
             padding: 3rem 1rem;
@@ -180,10 +97,10 @@
 
     <nav>
         <ul>
-            <li><a href="#about">Minust</a></li>
-            <li><a href="#portfolio">Tehtud tööd</a></li>
-            <li><a href="#education">Haridus</a></li>
-            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="index.html" class="active">Minust</a></li>
+            <li><a href="portfolio.html">Tehtud tööd</a></li>
+            <li><a href="haridus.html">Haridus</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
     </nav>
 
@@ -193,61 +110,10 @@
     </header>
 
     <div class="container">
-        
         <section id="about">
             <h2>Minust</h2>
             <p>Siia saad kirjutada paari lausega, kes Kaarel on, mis on tema tugevused ja milline on tema taust. See on hea koht, kus tuua välja tema kirg oma eriala vastu. Muuda seda teksti täpselt nii, nagu ise soovid.</p>
         </section>
-
-        <section id="portfolio">
-            <h2>Tehtud tööd</h2>
-            <div class="gallery">
-                
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80" alt="Projekti pilt 1">
-                    <div class="project-info">
-                        <h3>[Projekti Pealkiri 1]</h3>
-                        <p>Lühike kirjeldus, mida selles projektis tehti.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&q=80" alt="Projekti pilt 2">
-                    <div class="project-info">
-                        <h3>[Projekti Pealkiri 2]</h3>
-                        <p>Lühike kirjeldus, mida selles projektis tehti.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&q=80" alt="Projekti pilt 3">
-                    <div class="project-info">
-                        <h3>[Projekti Pealkiri 3]</h3>
-                        <p>Lühike kirjeldus, mida selles projektis tehti.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>Haridus</h2>
-            <ul class="info-list">
-                <li><strong>[Aasta - Aasta]</strong> — [Kooli või asutuse nimi], [Eriala või kursuse nimi]</li>
-                <li><strong>[Aasta - Aasta]</strong> — [Kooli või asutuse nimi], [Eriala või kursuse nimi]</li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Kontakt</h2>
-            <p>Kui soovid koostööd teha, võta julgelt ühendust:</p>
-            <ul class="info-list">
-                <li>📧 E-post: <a href="mailto:kaarel.leetsaar@voco.ee">Kaarel Leetsaar</a></li>
-                <li>📸 Instagram: <a href="https://instagram.com/kaarel.lee" target="_blank">Kaarel Leetsaar</a></li>
-                <li>🔗 LinkedIn: <a href="https://ee.linkedin.com/in/kaarel-leetsaar-0a5b513bb" target="_blank">Kaarel Leetsaar</a></li>
-            </ul>
-        </section>
-
     </div>
 
     <footer>
